@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Refactors>
+  <Renames>
+    <RenamedType>
+      <Type guid="11fa347d-b7bb-4cbb-b0d1-3f950d382f1a">F_ZBM</Type>
+      <From>F_Zbm</From>
+      <To>Zbm3</To>
+    </RenamedType>
+  </Renames>
+</Refactors>

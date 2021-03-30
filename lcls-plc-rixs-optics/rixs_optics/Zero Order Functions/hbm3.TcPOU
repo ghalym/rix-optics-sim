@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="hbm3" Id="{9a90becd-ad66-4735-a3f6-a9572ddddd1c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION hbm3 : REAL
+VAR_INPUT
+	Zbm: REAL;
+END_VAR
+VAR
+	Pm3 : REAL;
+	Hm3 : REAL;
+END_VAR
+VAR CONSTANT
+	Zpiv : REAL:= 739.622 ; //m
+	Hpiv : REAL:= 1.621305;//1.620305 + 0.001 // m 0.001 is correction from nominal
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+//Pm3 = mono grating pitch - 63300 urad
+Pm3 := Main.M7.fPosition - 63300;
+
+//hm3 = Hpiv + 0.006 m
+Hm3 :=  Hpiv + 0.006;
+
+
+hbm3 := TAN(Pm3) * Zbm + Hm3 - TAN(Pm3)*Zpiv;
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
