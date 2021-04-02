@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{85bf455d-934d-415a-b04c-6d4cdd9ff10e}</ProjectGuid>
     <SubObjectsSortedByName>True</SubObjectsSortedByName>
-    <Name>rixs_optics</Name>
+    <Name>rixs_optics_sim</Name>
     <ProgramVersion>3.1.4022.7</ProgramVersion>
     <Application>{5356792d-144f-4f3e-8b04-d35060997d7c}</Application>
     <TypeSystem>{c944e9c6-46f1-4204-bbab-10dbc7be8527}</TypeSystem>
@@ -124,13 +124,16 @@
     <Compile Include="SerialIO.TcTTO">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Zero Order Functions\Zbm3.TcPOU">
+    <Compile Include="Zero Order Functions\F_Zbm1.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Zero Order Functions\hbm3.TcPOU">
+    <Compile Include="Zero Order Functions\F_Zbm3.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Zero Order Functions\Theta_m3.TcPOU">
+    <Compile Include="Zero Order Functions\F_hbm3.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Zero Order Functions\F_Theta_m3.TcPOU">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -205,7 +208,7 @@
     </PlaceholderResolution>
   </ItemGroup>
   <ItemGroup>
-    <None Include="rixs_optics.tmc">
+    <None Include="rixs_optics_sim.tmc">
       <SubType>Content</SubType>
     </None>
   </ItemGroup>

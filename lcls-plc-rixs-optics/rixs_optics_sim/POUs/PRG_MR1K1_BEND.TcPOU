@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
   <POU Name="PRG_MR1K1_BEND" Id="{f3f12a20-b8bd-4f8a-96c6-66ebb9fb57e3}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_MR1K1_BEND
 VAR
@@ -10,27 +10,27 @@ VAR
 	                          .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 1^Position;
 	                          .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K1_Xupdwn]^FB Inputs Channel 2^Position'}
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND
+		pv: SIM:MR1K1:BEND
 	'}
 	M1K1 : DUT_HOMS;
 
 	// Encoder Arrays/RMS Watch:
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:Y
+		pv: SIM:MR1K1:BEND:ENC:Y
 	'}
 	fbYRMSErrorM1K1 : FB_RMSWatch;
 	fMaxYRMSErrorM1K1 : LREAL;
 	fMinYRMSErrorM1K1 : LREAL;
 
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:X
+		pv: SIM:MR1K1:BEND:ENC:X
 	'}
 	fbXRMSErrorM1K1 : FB_RMSWatch;
 	fMaxXRMSErrorM1K1 : LREAL;
 	fMinXRMSErrorM1K1 : LREAL;
 
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:PITCH
+		pv: SIM:MR1K1:BEND:ENC:PITCH
 	'}
 	fbPitchRMSErrorM1K1 : FB_RMSWatch;
 	fMaxPitchRMSErrorM1K1 : LREAL;
@@ -48,31 +48,31 @@ VAR
 
 	// Raw Encoder Counts
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:YUP:CNT
+		pv: SIM:MR1K1:BEND:ENC:YUP:CNT
 		field: EGU cnt
 		io: i
 	'}
 	nEncCntYupM1K1 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:YDWN:CNT
+		pv: SIM:MR1K1:BEND:ENC:YDWN:CNT
 		field: EGU cnt
 		io: i
 	'}
 	nEncCntYdwnM1K1 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:XUP:CNT
+		pv: SIM:MR1K1:BEND:ENC:XUP:CNT
 		field: EGU cnt
 		io: i
 	'}
 	nEncCntXupM1K1 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:XDWN:CNT
+		pv: SIM:MR1K1:BEND:ENC:XDWN:CNT
 		field: EGU cnt
 		io: i
 	'}
 	nEncCntXdwnM1K1 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:PITCH:CNT
+		pv: SIM:MR1K1:BEND:ENC:PITCH:CNT
 		field: EGU cnt
 		io: i
 	'}
@@ -80,31 +80,31 @@ VAR
 
 	// Encoder Reference Values
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:YUP:REF
+		pv: SIM:MR1K1:BEND:ENC:YUP:REF
 		field: EGU cnt
 		io: i
 	'}
 	nEncRefYupM1K1 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:YDWN:REF
+		pv: SIM:MR1K1:BEND:ENC:YDWN:REF
 		field: EGU cnt
 		io: i
 	'}
 	nEncRefYdwnM1K1 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:XUP:REF
+		pv: SIM:MR1K1:BEND:ENC:XUP:REF
 		field: EGU cnt
 		io: i
 	'}
 	nEncRefXupM1K1 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:XDWN:REF
+		pv: SIM:MR1K1:BEND:ENC:XDWN:REF
 		field: EGU cnt
 		io: i
 	'}
 	nEncRefXdwnM1K1 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:PITCH:REF
+		pv: SIM:MR1K1:BEND:ENC:PITCH:REF
 		field: EGU cnt
 		io: i
 	'}
@@ -117,7 +117,7 @@ VAR
 	
 	// Mirror LEDs
 	{attribute 'pytmc' := '
-        pv: MR1K1:BEND:LED:01:PWR
+        pv: SIM:MR1K1:BEND:LED:01:PWR
         io: io
         field: ZNAM OFF
         field: ONAM ON
@@ -126,7 +126,7 @@ VAR
     bLEDPower01 AT %Q*: BOOL;
 	
 	{attribute 'pytmc' := '
-        pv: MR1K1:BEND:LED:02:PWR
+        pv: SIM:MR1K1:BEND:LED:02:PWR
         io: io
         field: ZNAM OFF
         field: ONAM ON
@@ -135,7 +135,7 @@ VAR
     bLEDPower02 AT %Q*: BOOL;
 			
 	{attribute 'pytmc' := '
-        pv: MR1K1:BEND:LED:03:PWR
+        pv: SIM:MR1K1:BEND:LED:03:PWR
         io: io
         field: ZNAM OFF
         field: ONAM ON
@@ -143,7 +143,7 @@ VAR
 	{attribute 'TcLinkTo' := 'TIIB[EL2024-0010_M1K1_BEND_LED1]^Channel 3^Output'}
     bLEDPower03 AT %Q*: BOOL;
 	{attribute 'pytmc' := '
-        pv: MR1K1:BEND:LED:04:PWR
+        pv: SIM:MR1K1:BEND:LED:04:PWR
         io: io
         field: ZNAM OFF
         field: ONAM ON

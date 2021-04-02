@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmItem" TcSmVersion="1.0" TcVersion="3.1.4022.30" ClassName="CNestedPlcProjDef">
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmItem" TcSmVersion="1.0" TcVersion="3.1.4022.22" ClassName="CNestedPlcProjDef">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{1F2FE13D-DB49-47EA-9C9A-BFC0EBC1D83E}" Namespace="Tc2_SerialCom" AutoDeleteType="true">EL6inData22B</Name>
@@ -76,15 +76,15 @@
 			</Format>
 		</DataType>
 		<DataType>
-			<Name GUID="{6DDDB6E4-230F-461C-98E9-FE09EB6E0CFC}" Namespace="lcls_twincat_motion" AutoDeleteType="true">EL5042_Status</Name>
+			<Name GUID="{A862F627-8531-421F-B84E-F19ACDC993F7}" Namespace="lcls_twincat_motion" AutoDeleteType="true">EL5042_Status</Name>
 			<BitSize>0</BitSize>
 			<BaseType GUID="{FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF}"/>
 			<Hides>
-				<Hide GUID="{763B62AC-E3AC-443E-BD75-D238A6458348}"/>
+				<Hide GUID="{734E605C-D620-421D-BCFB-C610A29CC040}"/>
 			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{8E2EFB40-61D7-46CF-8D5D-253EC63308EE}" Namespace="lcls_twincat_motion" AutoDeleteType="true">ST_RenishawAbsEnc</Name>
+			<Name GUID="{173F26E7-5433-4431-9785-5EA008AFE268}" Namespace="lcls_twincat_motion" AutoDeleteType="true">ST_RenishawAbsEnc</Name>
 			<Comment>
 				<![CDATA[ Renishaw BiSS-C absolute encoder used with an EL5042]]>
 			</Comment>
@@ -97,16 +97,10 @@
 				</Comment>
 				<BitSize>64</BitSize>
 				<BitOffs>0</BitOffs>
-				<Properties>
-					<Property>
-						<Name>TcAddressType</Name>
-						<Value>Input</Value>
-					</Property>
-				</Properties>
 			</SubItem>
 			<SubItem>
 				<Name>Status</Name>
-				<Type GUID="{6DDDB6E4-230F-461C-98E9-FE09EB6E0CFC}" Namespace="lcls_twincat_motion">EL5042_Status</Type>
+				<Type GUID="{A862F627-8531-421F-B84E-F19ACDC993F7}" Namespace="lcls_twincat_motion">EL5042_Status</Type>
 				<Comment>
 					<![CDATA[ Status struct placeholder]]>
 				</Comment>
@@ -123,11 +117,11 @@
 				<BitOffs>64</BitOffs>
 			</SubItem>
 			<Hides>
-				<Hide GUID="{C212C34F-7A58-4053-B17F-6665057D8451}"/>
+				<Hide GUID="{9637C8FC-547C-44CE-974C-17BC8FADAD19}"/>
 			</Hides>
 		</DataType>
 		<DataType>
-			<Name GUID="{4C3FC5AC-D5AA-44C6-AC5A-159774BA0F6D}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">NCTOPLC_AXIS_REF_STATE</Name>
+			<Name GUID="{CBC83B73-B816-4597-A9E5-2B03263CA131}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">NCTOPLC_AXIS_REF_STATE</Name>
 			<BitSize>32</BitSize>
 			<SubItem>
 				<Name>Operational</Name>
@@ -238,6 +232,12 @@
 				<BitOffs>17</BitOffs>
 			</SubItem>
 			<SubItem>
+				<Name>IsDriveLimitActive</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>18</BitOffs>
+			</SubItem>
+			<SubItem>
 				<Name>ContinuousMotion</Name>
 				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
 				<BitSize>1</BitSize>
@@ -324,6 +324,11 @@
 			<Format Name="IEC">
 				<Printf>16#%08X</Printf>
 			</Format>
+			<Relations>
+				<Relation Priority="100">
+					<Type>{4C3FC5AC-D5AA-44C6-AC5A-159774BA0F6D}</Type>
+				</Relation>
+			</Relations>
 		</DataType>
 		<DataType>
 			<Name GUID="{6EF49753-C72C-4F50-AA44-3C7498E76CFE}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">NCTOPLC_AXIS_REF_OPMODE</Name>
@@ -519,11 +524,11 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC" TcBaseType="true">NCTOPLC_AXIS_REF</Name>
+			<Name GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC" TcBaseType="true">NCTOPLC_AXIS_REF</Name>
 			<BitSize>2048</BitSize>
 			<SubItem>
 				<Name>StateDWord</Name>
-				<Type GUID="{4C3FC5AC-D5AA-44C6-AC5A-159774BA0F6D}" Namespace="MC">NCTOPLC_AXIS_REF_STATE</Type>
+				<Type GUID="{CBC83B73-B816-4597-A9E5-2B03263CA131}" Namespace="MC">NCTOPLC_AXIS_REF_STATE</Type>
 				<BitSize>32</BitSize>
 				<BitOffs>0</BitOffs>
 			</SubItem>
@@ -778,6 +783,18 @@ External Setpoint Generation:
 				<BitOffs>1600</BitOffs>
 			</SubItem>
 			<SubItem>
+				<Name>AbsPhasingPos</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1664</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TorqueOffset</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1728</BitOffs>
+			</SubItem>
+			<SubItem>
 				<Name>ActPosWithoutPosCorrection</Name>
 				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
 				<BitSize>64</BitSize>
@@ -822,6 +839,9 @@ External Setpoint Generation:
 				</Relation>
 				<Relation Priority="100">
 					<Type GUID="{8CDE0C45-AB9D-42DB-BC94-1CF7521AB268}"/>
+				</Relation>
+				<Relation Priority="100">
+					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}"/>
 				</Relation>
 			</Relations>
 		</DataType>
@@ -1260,9 +1280,9 @@ External Setpoint Generation:
 			</Relations>
 		</DataType>
 	</DataTypes>
-	<Project GUID="{85BF455D-934D-415A-B04C-6D4CDD9FF10E}" Name="rixs_optics" PrjFilePath="..\..\rixs_optics\rixs_optics.plcproj" TmcFilePath="..\..\rixs_optics\rixs_optics.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics\rixs_optics.tmc">
-			<Name>rixs_optics Instance</Name>
+	<Project GUID="{85BF455D-934D-415A-B04C-6D4CDD9FF10E}" Name="rixs_optics_sim" PrjFilePath="..\..\rixs_optics_sim\rixs_optics_sim.plcproj" TmcFilePath="..\..\rixs_optics_sim\rixs_optics_sim.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+		<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="rixs_optics_sim\rixs_optics_sim.tmc">
+			<Name>rixs_optics_sim Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
 				<Name>SerialIO Inputs</Name>
@@ -1314,7 +1334,7 @@ External Setpoint Generation:
 					<Comment>
 						<![CDATA[ Encoders]]>
 					</Comment>
-					<Type GUID="{8E2EFB40-61D7-46CF-8D5D-253EC63308EE}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{173F26E7-5433-4431-9785-5EA008AFE268}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1336,7 +1356,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stYdwnEnc</Name>
-					<Type GUID="{8E2EFB40-61D7-46CF-8D5D-253EC63308EE}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{173F26E7-5433-4431-9785-5EA008AFE268}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1358,7 +1378,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXupEnc</Name>
-					<Type GUID="{8E2EFB40-61D7-46CF-8D5D-253EC63308EE}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{173F26E7-5433-4431-9785-5EA008AFE268}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1380,7 +1400,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.M1K1.fbRunHOMS.stXdwnEnc</Name>
-					<Type GUID="{8E2EFB40-61D7-46CF-8D5D-253EC63308EE}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{173F26E7-5433-4431-9785-5EA008AFE268}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -1430,7 +1450,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -1479,7 +1499,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.fbMotionStage_m16.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -1585,234 +1605,6 @@ Emergency Stop for MR1K1]]>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1</Name>
-					<Comment>
-						<![CDATA[ STO Button]]>
-					</Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable2</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYupEnc</Name>
-					<Comment>
-						<![CDATA[ Encoders]]>
-					</Comment>
-					<Type GUID="{8E2EFB40-61D7-46CF-8D5D-253EC63308EE}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-					<SubVar>
-						<Name>Count</Name>
-						<Comment>
-							<![CDATA[ Connect to encoder "Position" input]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Status</Name>
-						<Comment>
-							<![CDATA[ Status struct placeholder]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Ref</Name>
-						<Comment>
-							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc</Name>
-					<Type GUID="{8E2EFB40-61D7-46CF-8D5D-253EC63308EE}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-					<SubVar>
-						<Name>Count</Name>
-						<Comment>
-							<![CDATA[ Connect to encoder "Position" input]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Status</Name>
-						<Comment>
-							<![CDATA[ Status struct placeholder]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Ref</Name>
-						<Comment>
-							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc</Name>
-					<Type GUID="{8E2EFB40-61D7-46CF-8D5D-253EC63308EE}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-					<SubVar>
-						<Name>Count</Name>
-						<Comment>
-							<![CDATA[ Connect to encoder "Position" input]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Status</Name>
-						<Comment>
-							<![CDATA[ Status struct placeholder]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Ref</Name>
-						<Comment>
-							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc</Name>
-					<Type GUID="{8E2EFB40-61D7-46CF-8D5D-253EC63308EE}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
-					<SubVar>
-						<Name>Count</Name>
-						<Comment>
-							<![CDATA[ Connect to encoder "Position" input]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Status</Name>
-						<Comment>
-							<![CDATA[ Status struct placeholder]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>Ref</Name>
-						<Comment>
-							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.PEnc.Count</Name>
-					<Comment>
-						<![CDATA[ Connect to encoder "Position" input]]>
-					</Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleY.gantry_diff_limit.SEnc.Count</Name>
-					<Comment>
-						<![CDATA[ Connect to encoder "Position" input]]>
-					</Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.PEnc.Count</Name>
-					<Comment>
-						<![CDATA[ Connect to encoder "Position" input]]>
-					</Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.fbAutoCoupleX.gantry_diff_limit.SEnc.Count</Name>
-					<Comment>
-						<![CDATA[ Connect to encoder "Position" input]]>
-					</Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.fbM1K2PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-					<SubVar>
-						<Name>AxisState</Name>
-						<Comment>
-							<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>HomingState</Name>
-						<Comment>
-							<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>CoupleState</Name>
-						<Comment>
-							<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.fbMotionStage_m5.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-					<SubVar>
-						<Name>AxisState</Name>
-						<Comment>
-							<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>HomingState</Name>
-						<Comment>
-							<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>CoupleState</Name>
-						<Comment>
-							<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
 					<Name>PRG_SP1K1_MONO.flow_1</Name>
 					<Comment>
 						<![CDATA[Flow Switches]]>
@@ -1824,12 +1616,8 @@ External Setpoint Generation:
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>PRG_SP1K1_MONO.pres_1</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
 					<Name>PRG_SP1K1_MONO.fbMotionStage_m_pi.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -1878,7 +1666,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.fbMotionStage_g_pi.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -1927,7 +1715,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.fbMotionStage_m_h.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -1976,7 +1764,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.fbMotionStage_g_h.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -2025,7 +1813,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.fbMotionStage_s_r.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -2074,7 +1862,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.fbMotionStage_s_io.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -2123,7 +1911,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.mpi_upe</Name>
-					<Type GUID="{8E2EFB40-61D7-46CF-8D5D-253EC63308EE}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{173F26E7-5433-4431-9785-5EA008AFE268}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -2145,7 +1933,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.gpi_upe</Name>
-					<Type GUID="{8E2EFB40-61D7-46CF-8D5D-253EC63308EE}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
+					<Type GUID="{173F26E7-5433-4431-9785-5EA008AFE268}" Namespace="lcls_twincat_motion">ST_RenishawAbsEnc</Type>
 					<SubVar>
 						<Name>Count</Name>
 						<Comment>
@@ -2164,6 +1952,10 @@ External Setpoint Generation:
 							<![CDATA[ Encoder zero position (useful for aligned position with gantries)]]>
 						</Comment>
 					</SubVar>
+				</Var>
+				<Var>
+					<Name>PRG_SP1K1_MONO.pres_1</Name>
+					<Type>INT</Type>
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.RTD1.bError</Name>
@@ -2294,331 +2086,8 @@ External Setpoint Generation:
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>PRG_SL1K2_EXIT.fbPitch.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-					<SubVar>
-						<Name>AxisState</Name>
-						<Comment>
-							<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>HomingState</Name>
-						<Comment>
-							<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>CoupleState</Name>
-						<Comment>
-							<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbRoll.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-					<SubVar>
-						<Name>AxisState</Name>
-						<Comment>
-							<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>HomingState</Name>
-						<Comment>
-							<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>CoupleState</Name>
-						<Comment>
-							<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbVertical.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-					<SubVar>
-						<Name>AxisState</Name>
-						<Comment>
-							<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>HomingState</Name>
-						<Comment>
-							<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>CoupleState</Name>
-						<Comment>
-							<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbGap.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-					<SubVar>
-						<Name>AxisState</Name>
-						<Comment>
-							<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>HomingState</Name>
-						<Comment>
-							<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>CoupleState</Name>
-						<Comment>
-							<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbYag.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-					<SubVar>
-						<Name>AxisState</Name>
-						<Comment>
-							<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>HomingState</Name>
-						<Comment>
-							<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-						</Comment>
-					</SubVar>
-					<SubVar>
-						<Name>CoupleState</Name>
-						<Comment>
-							<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-						</Comment>
-					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_TOP.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_TOP.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_TOP.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_TOP.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_YAG.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_YAG.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_YAG.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_YAG.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_HeatSync.bError</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_HeatSync.bUnderrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_HeatSync.bOverrange</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.RTD_HeatSync.iRaw</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_1</Name>
-					<Comment>
-						<![CDATA[ M1K1 US RTDs]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbGige.fbGetIllPercent.iRaw</Name>
-					<Comment>
-						<![CDATA[ Connect this input to the terminal]]>
-					</Comment>
-					<Type>INT</Type>
-				</Var>
-				<Var>
 					<Name>PRG_ST1K1_ZOS.fbZOS.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -2664,25 +2133,6 @@ External Setpoint Generation:
 ]]>
 						</Comment>
 					</SubVar>
-				</Var>
-				<Var>
-					<Name>PRG_DAQ_ENCODER.iLatchPos</Name>
-					<Comment>
-						<![CDATA[ Inputs]]>
-					</Comment>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_DAQ_ENCODER.iLatchNeg</Name>
-					<Type>ULINT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_2</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_3</Name>
-					<Type>INT</Type>
 				</Var>
 				<Var>
 					<Name>PRG_2_PMPS_POST.fbArbiterIO.i_stCurrentBP</Name>
@@ -2823,14 +2273,25 @@ External Setpoint Generation:
 					<Type>BIT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_1</Name>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_1</Name>
 					<Comment>
-						<![CDATA[ M1K1 DS RTDs]]>
+						<![CDATA[ M1K1 US RTDs]]>
 					</Comment>
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_2</Name>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_2</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1US_RTD_3</Name>
+					<Type>INT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_1</Name>
+					<Comment>
+						<![CDATA[ M1K1 DS RTDs]]>
+					</Comment>
 					<Type>INT</Type>
 				</Var>
 				<Var>
@@ -2841,12 +2302,12 @@ External Setpoint Generation:
 					<Type>LINT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_3</Name>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_2</Name>
 					<Type>INT</Type>
 				</Var>
 				<Var>
-					<Name>Main.sio_current</Name>
-					<Type>UINT</Type>
+					<Name>GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_3</Name>
+					<Type>INT</Type>
 				</Var>
 				<Var>
 					<Name>GVL_M1K2.M1K2_Pitch.diEncCnt</Name>
@@ -2856,8 +2317,16 @@ External Setpoint Generation:
 					<Type>LINT</Type>
 				</Var>
 				<Var>
+					<Name>Main.sio_current</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>Main.sio_load</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
 					<Name>Main.M1.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -2955,7 +2424,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.fbMotionStage_m1.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -3004,7 +2473,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M2.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -3102,7 +2571,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.fbMotionStage_m2.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -3151,7 +2620,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M3.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -3249,7 +2718,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.fbMotionStage_m3.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -3298,7 +2767,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M4.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -3396,7 +2865,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.fbMotionStage_m4.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -3445,7 +2914,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M5.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -3543,7 +3012,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M6.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -3641,7 +3110,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M7.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -3739,7 +3208,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M8.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -3837,7 +3306,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M9.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -3935,7 +3404,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M10.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -4033,7 +3502,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M11.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -4131,7 +3600,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M12.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -4229,7 +3698,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.fbMotionStage_m12.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -4278,7 +3747,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M13.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -4376,7 +3845,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.fbMotionStage_m13.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -4425,7 +3894,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M14.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -4523,7 +3992,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.fbMotionStage_m14.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -4572,7 +4041,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M15.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -4670,7 +4139,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.fbMotionStage_m15.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -4719,7 +4188,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M16.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -4817,7 +4286,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M17.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -4915,7 +4384,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.fbMotionStage_m17.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -4964,7 +4433,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M18.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -5062,7 +4531,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.fbMotionStage_m18.fbDriveVirtual.MasterAxis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -5111,7 +4580,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M19.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -5209,7 +4678,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M20.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -5307,7 +4776,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M21.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -5405,7 +4874,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M22.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -5503,7 +4972,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M23.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -5601,7 +5070,7 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>Main.M24.Axis.NcToPlc</Name>
-					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+					<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 					<SubVar>
 						<Name>AxisState</Name>
 						<Comment>
@@ -5697,10 +5166,6 @@ External Setpoint Generation:
 					</Comment>
 					<Type>INT</Type>
 				</Var>
-				<Var>
-					<Name>Main.sio_load</Name>
-					<Type>UINT</Type>
-				</Var>
 			</Vars>
 			<Vars VarGrpType="2">
 				<Name>PlcTask Outputs</Name>
@@ -5712,16 +5177,16 @@ External Setpoint Generation:
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
+					<Name>PRG_MR1K1_BEND.bLEDPower02</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>PRG_MR1K1_BEND.fbM1K1PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.fbMotionStage_m16.fbDriveVirtual.MasterAxis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K1_BEND.bLEDPower02</Name>
-					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>PRG_MR1K1_BEND.bLEDPower03</Name>
@@ -5737,26 +5202,6 @@ External Setpoint Generation:
 						<![CDATA[////////////////////////////////////]]>
 					</Comment>
 					<Type>UDINT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.bLEDPower01</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.fbM1K2PitchControl.fbMotionStage.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_MR1K2_SWITCH.fbMotionStage_m5.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.bLEDPower02</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SP1K1_MONO.bLEDPower03</Name>
-					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>PRG_SP1K1_MONO.fbMotionStage_m_pi.fbDriveVirtual.MasterAxis.PlcToNc</Name>
@@ -5783,47 +5228,16 @@ External Setpoint Generation:
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
-					<Name>PRG_SL1K2_EXIT.fbPitch.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbRoll.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbVertical.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbGap.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbYag.fbDriveVirtual.MasterAxis.PlcToNc</Name>
-					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.bFanOn</Name>
+					<Name>PRG_SP1K1_MONO.bLEDPower01</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>PRG_SL1K2_EXIT.bLEDPower</Name>
+					<Name>PRG_SP1K1_MONO.bLEDPower02</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>PRG_SL1K2_EXIT.fbGige.iIlluminatorINT</Name>
-					<Type>INT</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbGige.bGigePower</Name>
+					<Name>PRG_SP1K1_MONO.bLEDPower03</Name>
 					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>PRG_SL1K2_EXIT.fbGige.fbSetIllPercent.iRaw</Name>
-					<Comment>
-						<![CDATA[ Connect this output to the terminal]]>
-					</Comment>
-					<Type>INT</Type>
 				</Var>
 				<Var>
 					<Name>PRG_ST1K1_ZOS.fbZOS.fbDriveVirtual.MasterAxis.PlcToNc</Name>
@@ -6350,51 +5764,73 @@ External Setpoint Generation:
 					</OwnerB>
 				</OwnerA>
 			</UnrestoredVarLinks>
+			<UnrestoredVarLinks ImportTime="2021-03-31T13:14:12">
+				<OwnerA Name="OutputSrc" Prefix="TIPC^rixs_optics_sim^rixs_optics_sim Instance" Type="2">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2">
+						<Link VarA="PRG_SL1K2_EXIT.bFanOn" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_SL1K2_EXIT.bLEDPower" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 2^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_SL1K2_EXIT.fbGige.bGigePower" TypeA="BOOL" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 3^Output" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL4004_SL1K2">
+						<Link VarA="PRG_SL1K2_EXIT.fbGige.iIlluminatorINT" TypeA="INT" InOutA="1" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="AO Outputs Channel 1^Analog output" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+				<OwnerA Name="InputDst" Prefix="TIPC^rixs_optics_sim^rixs_optics_sim Instance" Type="1">
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_1">
+						<Link VarA="PRG_SL1K2_EXIT.RTD_Crystal_TOP.bError" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="RTD^Status^Error" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_SL1K2_EXIT.RTD_Crystal_TOP.bOverrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="RTD^Status^Overrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_SL1K2_EXIT.RTD_Crystal_TOP.bUnderrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="RTD^Status^Underrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_SL1K2_EXIT.RTD_Crystal_TOP.iRaw" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="RTD^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_2">
+						<Link VarA="PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bError" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="RTD^Status^Error" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bOverrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="RTD^Status^Overrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bUnderrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="RTD^Status^Underrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.iRaw" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="RTD^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_3">
+						<Link VarA="PRG_SL1K2_EXIT.RTD_YAG.bError" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="RTD^Status^Error" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_SL1K2_EXIT.RTD_YAG.bOverrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="RTD^Status^Overrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_SL1K2_EXIT.RTD_YAG.bUnderrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="RTD^Status^Underrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_SL1K2_EXIT.RTD_YAG.iRaw" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="RTD^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4">
+						<Link VarA="PRG_SL1K2_EXIT.RTD_HeatSync.bError" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="RTD^Status^Error" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_SL1K2_EXIT.RTD_HeatSync.bOverrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="RTD^Status^Overrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_SL1K2_EXIT.RTD_HeatSync.bUnderrange" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="RTD^Status^Underrange" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_SL1K2_EXIT.RTD_HeatSync.iRaw" TypeA="INT" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000006}" VarB="RTD^Value" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL1004_M1K2_STO">
+						<Link VarA="PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 1^Input" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable2" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="Channel 2^Input" AutoLink="true" Size="1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Xupdwn">
+						<Link VarA="PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc^Count" TypeA="ULINT" InOutA="0" ParentTypeA="ST_RenishawAbsEnc" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 2^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc^Count" TypeA="ULINT" InOutA="0" ParentTypeA="ST_RenishawAbsEnc" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 1^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Yleftright">
+						<Link VarA="PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc^Count" TypeA="ULINT" InOutA="0" ParentTypeA="ST_RenishawAbsEnc" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 2^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYupEnc^Count" TypeA="ULINT" InOutA="0" ParentTypeA="ST_RenishawAbsEnc" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="FB Inputs Channel 1^Position" AutoLink="true" RestoreInfo="ANotFound"/>
+					</OwnerB>
+					<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 77 (EL1252-0050)">
+						<Link VarA="PRG_DAQ_ENCODER.iLatchNeg" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="Latch^LatchNeg1" RestoreInfo="ANotFound"/>
+						<Link VarA="PRG_DAQ_ENCODER.iLatchPos" TypeA="ULINT" InOutA="0" GuidA="{18071995-0000-0000-0000-00000000000B}" VarB="Latch^LatchPos1" RestoreInfo="ANotFound"/>
+					</OwnerB>
+				</OwnerA>
+			</UnrestoredVarLinks>
 			<TaskPouOids>
 				<TaskPouOid Prio="1" OTCID="#x08502001"/>
-				<TaskPouOid Prio="20" OTCID="#x08502003"/>
 				<TaskPouOid Prio="3" OTCID="#x08502002"/>
+				<TaskPouOid Prio="20" OTCID="#x08502003"/>
 			</TaskPouOids>
 		</Instance>
 	</Project>
 	<Mappings>
-		<OwnerA Name="rixs_optics Instance">
+		<OwnerA Name="rixs_optics_sim Instance">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^Box 84 (EP2338-0002)">
 				<Link VarA="PlcTask Outputs^PRG_SP1K1_MONO.bLEDPower01" VarB="Channel 10^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^PRG_SP1K1_MONO.bLEDPower02" VarB="Channel 12^Output" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^PRG_SP1K1_MONO.bLEDPower03" VarB="Channel 14^Output" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL2004_SL1K2">
-				<Link VarA="PlcTask Outputs^PRG_SL1K2_EXIT.bFanOn" VarB="Channel 1^Output" AutoLink="true"/>
-				<Link VarA="PlcTask Outputs^PRG_SL1K2_EXIT.bLEDPower" VarB="Channel 2^Output" AutoLink="true"/>
-				<Link VarA="PlcTask Outputs^PRG_SL1K2_EXIT.fbGige.bGigePower" VarB="Channel 3^Output" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_1">
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_TOP.bError" VarB="RTD^Status^Error" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_TOP.bOverrange" VarB="RTD^Status^Overrange" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_TOP.bUnderrange" VarB="RTD^Status^Underrange" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_TOP.iRaw" VarB="RTD^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_2">
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bError" VarB="RTD^Status^Error" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bOverrange" VarB="RTD^Status^Overrange" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.bUnderrange" VarB="RTD^Status^Underrange" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_Crystal_BOTTOM.iRaw" VarB="RTD^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_3">
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.bError" VarB="RTD^Status^Error" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.bOverrange" VarB="RTD^Status^Overrange" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.bUnderrange" VarB="RTD^Status^Underrange" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_YAG.iRaw" VarB="RTD^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL3201_SL1K2_4">
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.bError" VarB="RTD^Status^Error" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.bOverrange" VarB="RTD^Status^Overrange" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.bUnderrange" VarB="RTD^Status^Underrange" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_SL1K2_EXIT.RTD_HeatSync.iRaw" VarB="RTD^Value" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL4004_SL1K2">
-				<Link VarA="PlcTask Outputs^PRG_SL1K2_EXIT.fbGige.iIlluminatorINT" VarB="AO Outputs Channel 1^Analog output" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^E5 (EK1122)^SL1K2-EXIT (EK1100)^EL5042_SL1K2_PITCH_VERT">
 				<Link VarA="PlcTask Inputs^Main.M19.nRawEncoderULINT" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
@@ -6521,21 +5957,9 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Outputs^PRG_2_PMPS_POST.fbArbiterIO.q_stRequestedBP" VarB="IO Outputs^RequestedBP" AutoLink="true"/>
 				<Link VarA="PlcTask Outputs^PRG_MR1K1_BEND.nMR1K1_Y_ENC_PMPS" VarB="IO Outputs^MR1K1_Y_ENC" AutoLink="true"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL1004_M1K2_STO">
-				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable1" VarB="Channel 1^Input" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.bSTOEnable2" VarB="Channel 2^Input" AutoLink="true"/>
-			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Pitch">
 				<Link VarA="PlcTask Inputs^GVL_M1K1.M1K1_Pitch.diEncCnt" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^GVL_M1K2.M1K2_Pitch.diEncCnt" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Xupdwn">
-				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXdwnEnc^Count" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stXupEnc^Count" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL5042_M1K2_Yleftright">
-				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYdwnEnc^Count" VarB="FB Inputs Channel 2^Position" AutoLink="true"/>
-				<Link VarA="PlcTask Inputs^PRG_MR1K2_SWITCH.M1K2.fbRunHOMS.stYupEnc^Count" VarB="FB Inputs Channel 1^Position" AutoLink="true"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_M1K2^EL6001_M1K2_PitchFine">
 				<Link VarA="SerialIO Inputs^GVL_SerialIO.Serial_stComIn_M1K2^D[0]" VarB="COM Inputs^Data In 0"/>
@@ -6686,10 +6110,6 @@ External Setpoint Generation:
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EK1122)^EK1100_ST1K2_ZOS^ST1K1-EL7041">
 				<Link VarA="PlcTask Inputs^Main.M24.bLimitBackwardEnable" VarB="STM Status^Status^Digital input 2" AutoLink="true"/>
 				<Link VarA="PlcTask Inputs^Main.M24.bLimitForwardEnable" VarB="STM Status^Status^Digital input 1" AutoLink="true"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 77 (EL1252-0050)">
-				<Link VarA="PlcTask Inputs^PRG_DAQ_ENCODER.iLatchNeg" VarB="Latch^LatchNeg1"/>
-				<Link VarA="PlcTask Inputs^PRG_DAQ_ENCODER.iLatchPos" VarB="Latch^LatchPos1"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Axis 24 ST1K1-ZOS-MMS">
 				<Link VarA="PlcTask Inputs^Main.M24.Axis.NcToPlc" VarB="Outputs^ToPlc"/>

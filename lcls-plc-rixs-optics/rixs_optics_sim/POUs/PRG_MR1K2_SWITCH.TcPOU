@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
   <POU Name="PRG_MR1K2_SWITCH" Id="{5d1ad344-c9c3-47ff-86fa-37de6eb5129e}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_MR1K2_SWITCH
 VAR
@@ -10,27 +10,27 @@ VAR
 	                          .fbRunHOMS.stXupEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 1^Position;
 	                          .fbRunHOMS.stXdwnEnc.Count:=TIIB[EL5042_M1K2_Xupdwn]^FB Inputs Channel 2^Position'}
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH
+		pv: SIM:MR1K2:SWITCH
 	'}
 	M1K2 : DUT_HOMS;
 
 	// Encoder Arrays/RMS Watch:
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:Y
+		pv: SIM:MR1K2:SWITCH:ENC:Y
 	'}
 	fbYRMSErrorM1K2 : FB_RMSWatch;
 	fMaxYRMSErrorM1K2 : LREAL;
 	fMinYRMSErrorM1K2 : LREAL;
 
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:X
+		pv: SIM:MR1K2:SWITCH:ENC:X
 	'}
 	fbXRMSErrorM1K2 : FB_RMSWatch;
 	fMaxXRMSErrorM1K2 : LREAL;
 	fMinXRMSErrorM1K2 : LREAL;
 
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:PITCH
+		pv: SIM:MR1K2:SWITCH:ENC:PITCH
 	'}
 	fbPitchRMSErrorM1K2 : FB_RMSWatch;
 	fMaxPitchRMSErrorM1K2 : LREAL;
@@ -47,7 +47,7 @@ VAR
 	
 	// Roll (Rotation about Z axis) induced from Ygantry:
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:ROLL
+		pv: SIM:MR1K2:SWITCH:ENC:ROLL
 		field: EGU urad
 		io: i
 	'}
@@ -55,31 +55,31 @@ VAR
 
 	// Raw Encoder Counts
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:YLEFT:CNT
+		pv: SIM:MR1K2:SWITCH:ENC:YLEFT:CNT
 		field: EGU cnt
 		io: i
 	'}
 	nEncCntYleftM1K2 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:YRIGHT:CNT
+		pv: SIM:MR1K2:SWITCH:ENC:YRIGHT:CNT
 		field: EGU cnt
 		io: i
 	'}
 	nEncCntYrightM1K2 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:XUP:CNT
+		pv: SIM:MR1K2:SWITCH:ENC:XUP:CNT
 		field: EGU cnt
 		io: i
 	'}
 	nEncCntXupM1K2 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:XDWN:CNT
+		pv: SIM:MR1K2:SWITCH:ENC:XDWN:CNT
 		field: EGU cnt
 		io: i
 	'}
 	nEncCntXdwnM1K2 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:PITCH:CNT
+		pv: SIM:MR1K2:SWITCH:ENC:PITCH:CNT
 		field: EGU cnt
 		io: i
 	'}
@@ -87,31 +87,31 @@ VAR
 
 	// Encoder Reference Values
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:YLEFT:REF
+		pv: SIM:MR1K2:SWITCH:ENC:YLEFT:REF
 		field: EGU cnt
 		io: i
 	'}
 	nEncRefYleftM1K2 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:YRIGHT:REF
+		pv: SIM:MR1K2:SWITCH:ENC:YRIGHT:REF
 		field: EGU cnt
 		io: i
 	'}
 	nEncRefYrightM1K2 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:XUP:REF
+		pv: SIM:MR1K2:SWITCH:ENC:XUP:REF
 		field: EGU cnt
 		io: i
 	'}
 	nEncRefXupM1K2 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:XDWN:REF
+		pv: SIM:MR1K2:SWITCH:ENC:XDWN:REF
 		field: EGU cnt
 		io: i
 	'}
 	nEncRefXdwnM1K2 : UDINT;
 	{attribute 'pytmc' := '
-		pv: MR1K2:SWITCH:ENC:PITCH:REF
+		pv: SIM:MR1K2:SWITCH:ENC:PITCH:REF
 		field: EGU cnt
 		io: i
 	'}

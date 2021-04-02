@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
   <POU Name="PRG_MR1K1_BEND_BENDER" Id="{bb813b23-fc7f-4024-bdef-2b118b22f1e7}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_MR1K1_BEND_BENDER
 VAR
 	// Encoder Arrays/RMS Watch:
 	//MR1K1 US BENDER ENC RMS
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:US
+		pv: SIM:MR1K1:BEND:ENC:US
 	'}
 	fbBendUSRMSErrorM1K1 : FB_RMSWatch;
 	fMaxBendUSRMSErrorM1K1 : LREAL;
 	fMinBendUSRMSErrorM1K1 : LREAL;	
 	//MR1K1 DS BENDER ENC RMS
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:DS
+		pv: SIM:MR1K1:BEND:ENC:DS
 	'}
 	fbBendDSRMSErrorM1K1 : FB_RMSWatch;
 	fMaxBendDSRMSErrorM1K1 : LREAL;
@@ -22,14 +22,14 @@ VAR
 	// Encoder Reference Values
 	//MR1K1 BEND US ENC REF
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:US:REF
+		pv: SIM:MR1K1:BEND:ENC:US:REF
 		field: EGU cnt
 		io: i
 	'}
 	nEncRefBendUSM1K1 : UDINT;
 	//MR1K1 BEND DS ENC REF
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:DS:REF
+		pv: SIM:MR1K1:BEND:ENC:DS:REF
 		field: EGU cnt
 		io: i
 	'}
@@ -38,14 +38,14 @@ VAR
 	// Encoder raw counts
 	//M1K1 BEND US ENC CNT
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:US:CNT
+		pv: SIM:MR1K1:BEND:ENC:US:CNT
 		field: EGU cnt
 		io: i
 	'}
 	nEncCntBendUSM1K1 : UDINT;
 	//M1K1 BEND DS ENC CNT
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:ENC:DS:CNT
+		pv: SIM:MR1K1:BEND:ENC:DS:CNT
 		field: EGU cnt
 		io: i
 	'}
@@ -60,21 +60,21 @@ VAR
 	// MR1K1 Bender RTDs
 	// MR1K1 US RTDs
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:RTD:US:1
+		pv: SIM:MR1K1:BEND:RTD:US:1
 		field: ASLO 0.01
 		field: EGU C
 		io: i
 	'}
 	fM1K1US_RTD_1 : REAL;
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:RTD:US:2
+		pv: SIM:MR1K1:BEND:RTD:US:2
 		field: ASLO 0.01
 		field: EGU C
 		io: i
 	'}
 	fM1K1US_RTD_2 : REAL;
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:RTD:US:3
+		pv: SIM:MR1K1:BEND:RTD:US:3
 		field: ASLO 0.01
 		field: EGU C
 		io: i
@@ -83,21 +83,21 @@ VAR
 
 	// M1K1 DS RTDs
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:RTD:DS:1
+		pv: SIM:MR1K1:BEND:RTD:DS:1
 		field: ASLO 0.01
 		field: EGU C
 		io: i
 	'}
 	fM1K1DS_RTD_1 : REAL;
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:RTD:DS:2
+		pv: SIM:MR1K1:BEND:RTD:DS:2
 		field: ASLO 0.01
 		field: EGU C
 		io: i
 	'}
 	fM1K1DS_RTD_2 : REAL;
 	{attribute 'pytmc' := '
-		pv: MR1K1:BEND:RTD:DS:3
+		pv: SIM:MR1K1:BEND:RTD:DS:3
 		field: ASLO 0.01
 		field: EGU C
 		io: i
@@ -162,12 +162,13 @@ fM1K1DS_RTD_2 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_2);
 fM1K1DS_RTD_3 := INT_TO_REAL(GVL_M1K1_BENDER_RTD.nM1K1DS_RTD_3);
 
 // RTD not connected if T=0
+(*
 bM1K1US_RTD_1_Err := fM1K1US_RTD_1 = 0;
 bM1K1US_RTD_2_Err := fM1K1DS_RTD_2 = 0;
 bM1K1US_RTD_3_Err := fM1K1US_RTD_3 = 0;
 bM1K1DS_RTD_1_Err := fM1K1DS_RTD_1 = 0;
 bM1K1DS_RTD_2_Err := fM1K1DS_RTD_2 = 0;
-bM1K1DS_RTD_3_Err := fM1K1DS_RTD_3 = 0;
+bM1K1DS_RTD_3_Err := fM1K1DS_RTD_3 = 0;*)
 
 
 // M1K1 Bender RTD interlocks

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.18">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
   <POU Name="PRG_SP1K1_MONO" Id="{397aec28-b6d3-4c1c-afed-2cc3b34939d3}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PRG_SP1K1_MONO
 VAR
@@ -24,12 +24,12 @@ VAR
 	gpi_upe  AT %I*:  ST_RenishawAbsEnc:=(ref:=0);
 
 	{attribute 'pytmc' := '
-		pv: SP1K1:MONO:ENC:M_PI:02
+		pv: SIM:SP1K1:MONO:ENC:M_PI:02
 		io: o
 	'}
 	mpi_upeurad: LREAL;
 	{attribute 'pytmc' := '
-		pv: SP1K1:MONO:ENC:G_PI:02
+		pv: SIM:SP1K1:MONO:ENC:G_PI:02
 		io: o
 	'}
 	gpi_upeurad: LREAL;
@@ -44,19 +44,19 @@ VAR
 	pres_1 AT %I*: INT;
 		
 	{attribute 'pytmc' := '
-		pv:  SP1K1:MONO:FSW:01
+		pv:  SIM:SP1K1:MONO:FSW:01
 		io: o
 	'}
 	FLOW1 : LREAL := 0.00;
 	
 	{attribute 'pytmc' := '
-		pv:  SP1K1:MONO:FSW:02
+		pv:  SIM:SP1K1:MONO:FSW:02
 		io: o
 	'}
 	FLOW2 : LREAL := 0.00;
 	
 	{attribute 'pytmc' := '
-		pv:  SP1K1:MONO:P1
+		pv:  SIM:SP1K1:MONO:P1
 		io: o
 	'}
 	PRES1 : LREAL := 0.00;
@@ -64,7 +64,7 @@ VAR
 
 	(*RTDs*)
 	{attribute 'pytmc' := '
-		pv: SP1K1:MONO:RTD:01
+		pv: SIM:SP1K1:MONO:RTD:01
 		io: o
 	'}
 	 {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 1^Value;
@@ -74,7 +74,7 @@ VAR
 	RTD1 : FB_TempSensor;
 	
 	{attribute 'pytmc' := '
-		pv: SP1K1:MONO:RTD:02
+		pv: SIM:SP1K1:MONO:RTD:02
 		io: o
 	'}
 	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E13]^RTD Inputs Channel 2^Value;
@@ -84,7 +84,7 @@ VAR
 	RTD2 : FB_TempSensor;
 	
 	{attribute 'pytmc' := '
-		pv: SP1K1:MONO:RTD:03
+		pv: SIM:SP1K1:MONO:RTD:03
 		io: o
 	'}
 	 {attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 1^Value;
@@ -94,7 +94,7 @@ VAR
 	RTD3 :FB_TempSensor;
 	
 	{attribute 'pytmc' := '
-		pv: SP1K1:MONO:RTD:04
+		pv: SIM:SP1K1:MONO:RTD:04
 		io: o
 	'}
 	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3202-E14]^RTD Inputs Channel 2^Value;
@@ -104,7 +104,7 @@ VAR
 	RTD4 : FB_TempSensor;
 	
 		{attribute 'pytmc' := '
-		pv: SP1K1:MONO:RTD:05
+		pv: SIM:SP1K1:MONO:RTD:05
 		io: o
 	'}
 	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 1^Value;
@@ -114,7 +114,7 @@ VAR
 	RTD5 : FB_TempSensor;
 	
 	{attribute 'pytmc' := '
-		pv: SP1K1:MONO:RTD:06
+		pv: SIM:SP1K1:MONO:RTD:06
 		io: o
 	'}
 	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E15]^RTD Inputs Channel 2^Value;
@@ -124,7 +124,7 @@ VAR
 	RTD6 : FB_TempSensor;
 	
 	{attribute 'pytmc' := '
-		pv: SP1K1:MONO:RTD:07
+		pv: SIM:SP1K1:MONO:RTD:07
 		io: o
 	'}
 	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 1^Value;
@@ -134,7 +134,7 @@ VAR
 	RTD7 : FB_TempSensor;
 	
 	{attribute 'pytmc' := '
-		pv: SP1K1:MONO:RTD:08
+		pv: SIM:SP1K1:MONO:RTD:08
 		io: o
 	'}
 	{attribute 'TcLinkTo' := '.iRaw := TIIB[SP1K1-EL3204-E16]^RTD Inputs Channel 2^Value;
@@ -150,19 +150,19 @@ VAR
 	//////////TODO
 	
 	{attribute 'pytmc' := '
-		pv: GM:PITCH:fipi_read
+		pv: SIM:GM:PITCH:fipi_read
 		io: i
 	'}	
 	fipi_read: LREAL;
 	
 	{attribute 'pytmc' := '
-		pv: GM:PITCH:fipi_set
+		pv: SIM:GM:PITCH:fipi_set
 		io: o
 	'}
 	fipi_set:  LREAL;
 	
 	{attribute 'pytmc' := '
-        pv: SP1K1:MONO:LED:01:PWR
+        pv: SIM:SP1K1:MONO:LED:01:PWR
         io: io
         field: ZNAM OFF
         field: ONAM ON
@@ -171,7 +171,7 @@ VAR
     bLEDPower01 AT %Q*: BOOL;
 	
 	{attribute 'pytmc' := '
-        pv: SP1K1:MONO:LED:02:PWR
+        pv: SIM:SP1K1:MONO:LED:02:PWR
         io: io
         field: ZNAM OFF
         field: ONAM ON
@@ -180,7 +180,7 @@ VAR
     bLEDPower02 AT %Q*: BOOL;
 			
 	{attribute 'pytmc' := '
-        pv: SP1K1:MONO:LED:03:PWR
+        pv: SIM:SP1K1:MONO:LED:03:PWR
         io: io
         field: ZNAM OFF
         field: ONAM ON

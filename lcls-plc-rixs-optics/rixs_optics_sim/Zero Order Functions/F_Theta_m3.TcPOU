@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
-  <POU Name="Theta_m3" Id="{e2a5921a-7e31-4dc3-8302-5ad55f4155fe}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION Theta_m3 : REAL
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <POU Name="F_Theta_m3" Id="{e2a5921a-7e31-4dc3-8302-5ad55f4155fe}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_Theta_m3 : REAL
 VAR_INPUT
 END_VAR
 VAR
@@ -23,7 +23,7 @@ Pm2 := Main.M6.fPosition - 90700;
 //Pm1 = 18310 - 281 + mr1k1 bend pitch 
 Pm1 := 18310 - 281 + Main.M16.fPosition;
 
-Theta_m3 := 2 *Pm3 - 2 * Pm2 + 2* Pm1 - Theta0;]]></ST>
+F_Theta_m3 := 2 *Pm3 - 2 * Pm2 + 2* Pm1 - Theta0;]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

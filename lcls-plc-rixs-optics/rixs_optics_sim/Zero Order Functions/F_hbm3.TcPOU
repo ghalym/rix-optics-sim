@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
-  <POU Name="hbm3" Id="{9a90becd-ad66-4735-a3f6-a9572ddddd1c}" SpecialFunc="None">
-    <Declaration><![CDATA[FUNCTION hbm3 : REAL
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.12">
+  <POU Name="F_hbm3" Id="{9a90becd-ad66-4735-a3f6-a9572ddddd1c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION F_hbm3 : REAL
 VAR_INPUT
 	Zbm: REAL;
 END_VAR
@@ -23,7 +23,7 @@ Pm3 := Main.M7.fPosition - 63300;
 Hm3 :=  Hpiv + 0.006;
 
 
-hbm3 := TAN(Pm3) * Zbm + Hm3 - TAN(Pm3)*Zpiv;
+F_hbm3 := TAN(Pm3) * Zbm + Hm3 - TAN(Pm3)*Zpiv;
 
 ]]></ST>
     </Implementation>
